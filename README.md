@@ -1,4 +1,4 @@
-# velocity-london-2018
+# Velocity London 2018
 Notes related to the Velocity 2018 conference in London
 
 # Visited talks
@@ -217,7 +217,7 @@ source organisation != release cadence
 ## Building a distributed real time stream processing system
 [Conference link](https://conferences.oreilly.com/velocity/vl-eu/public/schedule/detail/70994)
 
-[Slides](https://conferences.oreilly.com/velocity/vl-eu/public/schedule/detail/70994)
+[Slides](https://cdn.oreillystatic.com/en/assets/1/event/276/Building%20a%20distributed%20real-time%20stream%20processing%20system%20Presentation.pdf)
 
 Filter/Match the events from the original streams
 Aggregate over the matched events from the filtered stream 
