@@ -15,16 +15,23 @@ Notes related to the Velocity 2018 conference in London
 ## A global source of truth for the microservices generation
 [Conference link](https://conferences.oreilly.com/velocity/vl-eu/public/schedule/detail/71092)
 
-Where does the data lives? The data is living in events
-View [The database inside out](https://martin.kleppmann.com/2015/02/11/database-inside-out-at-salesforce.html)
-Take only the data that you need.  Minimize the amount of data that is flowing though your system.
+Where does the data lives? The data is living in events. 
+View [The database inside out](https://martin.kleppmann.com/2015/02/11/database-inside-out-at-salesforce.html). Take only the data that you need.  Minimize the amount of data that is flowing though your system.
 
-Broadcast events.
-Cache shared datasets in the log and make them discoverable.
-Let users manipulate event streams directly.
-Drive simple microservicesor prepare use case specific views in a DB of your choice.
+- Broadcast events.
+- Cache shared datasets in the log and make them discoverable.
+- Let users manipulate event streams directly.
+- Drive simple microservicesor prepare use case specific views in a DB of your choice.
 
 Making data self service!
+
+![](https://lh3.googleusercontent.com/A-fIjNMImAtgy3kFwxEQPXFTK_fKJteVwKILNpr_kl-DGd19NtcShK7YfvQc5YAprXgryiO6QscFclBpA1D-zQf3Lc_7wY00dEWKOZMh9LVVSsVGr9IVNMhrbhNejTzF5rEsw6gOqBY=w851-h638-no)
+![](https://lh3.googleusercontent.com/EnV5x6ZGpPN9NpfNLhAyZt7rGt9oCABf7bjdKphBOzYh_WZlAbZAiwEMgI_tQMTNIeuFD7_slriEvdCyEEqBn4Jv7vfTvftj1fODMv2DFTlIHtW54r8N8tM4E7uxrT8XETeg7JLoWbo=w1746-h1310-no)
+![](https://lh3.googleusercontent.com/7MlEGa22rfNt_WztiDpB0qMJcxMeYF_D4f5EwUzXveBfTRHsb623HHRRLiJW_6k53xnFcfEuEc4bkJuruHNELupAh71DEZegVHosHqA6CQa6FmU_XW7PYoJAidz0riw-yDd1-rjmMk8=w851-h638-no)
+![](https://lh3.googleusercontent.com/qd2DXNTq-IjdG7BnKzKKUrfjj0-kFjBfhk2uHYeBJXIcleMJOG8gMcpBlS--WBBFcTFM9BD_hC_s9TLhb3oa8oCK5ChZsR5NWUuOe7tBxj6pV0s1ydKYIDri8t3zQvaTt14Iz0BgHzs=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/fnsXZzuJyzIbk9weF_uwE6u4vUI_VkJOx-SAQ_p5CVXdVdcMHRmWymWoTHR7RTdoA8u8wIChl8VqzymRm2uCXdpahO74sKj3JSzH3nNth5sNLQq_5Vick91ADHMhxdldVN-5KtaEzic=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/jG4dsq1O9TmzOvFLH4_KB1E14UNgkixd-PKAgvyc46Kspt9QM1pnXrB0B-Eqy9J4ugqH7pPobqIK-27-DXIqMDeZJGoCfAApJvSi4cpCRxcSvC417haumwELVqDMs3wtmOWj03wJIBU=w2128-h1596-no)
+
 
 ---
 
@@ -35,8 +42,7 @@ Making data self service!
 
 - Using (vulnerable) external libraries
   - For example when you need to fetch file & store in s3
-    - The library constists of 191.155 lines of code
-  Usage of the package is only 20 lines of code, initialize the 191.000 code. Where would the risk be?
+    - The library constists of 191.155 lines of code. Usage of the package is only 20 lines of code, initialize the 191.000 code. Where would the risk be?
 Serverless does not secure the application securities. It does for the OS securities.
 
 1) Beware of vulnerable libraries
@@ -93,7 +99,8 @@ Custom API
 
 [Slides](https://cdn.oreillystatic.com/en/assets/1/event/276/Building%20resilient%20serverless%20systems%20Presentation.pdf)
 
-Things should be resilient when things are on fire. We should be confident that when everything is on fire, we should not worry
+Things should be resilient when things are on fire. We should be confident that when everything is on fire, we should not worry.
+
 ![this is fine](https://www.geek.com/wp-content/uploads/2016/08/this-is-fine-meme-625x350.jpg)
 
 - What happens when those vendor managed services fail?
@@ -112,12 +119,14 @@ API Gateway in regional mode?
 [Conference link](https://conferences.oreilly.com/velocity/vl-eu/public/schedule/detail/72750)
 
 1. **Checklist**
+
 Reason why it takes long before you have a production grade infrastructure:
 - [Yak shaving](https://www.techopedia.com/definition/15511/yak-shaving): a seemingly endless series of small tasks you have to do before you can go the work you need to do.
 - The infrastructure checklist is a long list.
 - Use the [checklist](gruntwork.io/devops-checklist) to build the production grade infrastructure
 
 2. **Tools**
+
 Tools are great but not enough. Change behaviour of the team also! People need to get used to use the tools and this takes time to get confident with the tools.
 
 3. Everything in one file is harmful. making a change in that one file, you could potentially break everything. Also it is hard to test, understand and reuse the confident.
@@ -138,20 +147,22 @@ live
 Build infrastructure from small, composable modules.
 
 4. **Tests**
+
 Infrastructure code without automated tests is broken!
 Test strategy:
-  1. Deploy real infrastructure
-  2. Validate it works
+    - Deploy real infrastructure
+    - Validate it works
   
 Use [Terratest](https://github.com/gruntwork-io/terratest) to test the infrastructure code.
 Tests creating and deleting a lot of resources.
 Clean up the left over resources in the account: [cloud-nuke](https://github.com/gruntwork-io/cloud-nuke)
 
 5. **Releases**
-  1. Go through the checklist.
-  2. Write some code.
-  3. Validate it works.
-  4. Profit!
+
+    - Go through the checklist.
+    - Write some code.
+    - Validate it works.
+    - Profit!
 
 ---
 
@@ -226,6 +237,12 @@ Must have dashboards:
 - System throughput
 - SLIs 
 
+![](https://lh3.googleusercontent.com/nHnRmqdDXJeob6M7GovtiXDBJa8Ksj5vo0gwhBAX6_5VsP9HCSh8BqOgL1MAKE1ZWEAROfHm4OvJ6hMAbSocjvtifSI-CKmyzIfHfLuXQjjmvmsYdAVTE3hw1TH8buPb7os7rn7E-g8=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/Ei8bLXAAvGNj0qdfsRpR7cddJJ1AG26bVPB13QKQpWNuYTZFcaFM84FaEiiNXVYp4qD1zv6kpdPXE_yertLsrmciPIwm-9SggEGnjkIaI_Ugfp_Sm-esh3ytiThMtG45Q-UwW14mpW0=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/7hgjChog8scq9TzzsM08_jl15N9dIoqIgBwT3KbsH1kb3Vg0hF3keO-cTNJyh1-7ssFZ-24x69Bu9ajWyRPSvsxzZjSqQrS81szeB5JMVgdgM8hRrNrPsMB0kHdSEbarj1zJNAlYi-c=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/pUsdxuEEbeu8BtsR3eXLmrhNaGCQSnAuWXLCIM-DCkSxnnDV20AfFeDqF62lOIGbl4yTsMfzql_FDMYZndvn8Ga4bJmaMKnK1V0z9GYoxvZN4_Vf5tWleJWGemdTWTzJjaBLbE8PxuQ=w2128-h1596-no)
+
+
 ---
 
 ## Architecting for TV
@@ -266,3 +283,6 @@ Needed to change the mindset on how to proceed.
 
 Goals after the stop/step back
 - Shipping confidence! 
+
+![](https://lh3.googleusercontent.com/ApEJRh7o1d9GedBHnnBGbu6jQ4fSc-hSbaNrUAYx3kPVBkGZ4EcvJl8U6SwMC2IrwyL3iXQB0FaEIt16QF5QZFiZhc37VNbfhka0iH53Rpv-2zrq55CSVlkmqZdFMtYYxq5svcYrWus=w2128-h1596-no)
+![](https://lh3.googleusercontent.com/9Y8vsZgGfH0OJqzqHsWZqKFqBY-aOIYqRz2B52TDJ5ch4Ce8o64GhM1bQT-6YQZAoC72ngZM8D55waNlBbPJ0qVjzlDk1x916Mm2MzVcOtWSRGbfg3_T-3A5E7RZTQawwRTiK0UC9-k=w2128-h1596-no)
