@@ -123,7 +123,7 @@ API Gateway in regional mode?
 Reason why it takes long before you have a production grade infrastructure:
 - [Yak shaving](https://www.techopedia.com/definition/15511/yak-shaving): a seemingly endless series of small tasks you have to do before you can go the work you need to do.
 - The infrastructure checklist is a long list.
-- Use the [checklist](gruntwork.io/devops-checklist) to build the production grade infrastructure
+- Use the [checklist](https://www.gruntwork.io/devops-checklist/) to build the production grade infrastructure
 
 2. **Tools**
 
